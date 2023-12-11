@@ -1,152 +1,154 @@
-# Инструкция по __Git__
+# Instructions for __Git__
 
-### __Что такое *Git* ?__
+### __What is *Git*?__
 
-### __*Git*__ это - одна из систем по контролю версий, __*Git*__ на данный момент является абсолютным лидером по популярности среди систем управления версиями.
+### __*Git*__ is one of the version control systems, __*Git*__ is currently the absolute leader in popularity among version control systems.
 
-## __1. Начало работы *Git*__
+## __1. Getting started with *Git*__
 
 + ### Представиться __*Git*__:
 
-После установки Git добавить данные : имя пользователя и адрес электронной почты. Для этого в терминале ввести команды:
+After installing Git, add the data: username and email address. To do this, enter the following commands in the terminal:
 
 ```sh
-git config --global user.name "имя пользователя"
+git config --global user.name "username"
 
-git config --global user.email адрес электронной почты
+git config --global user.email email
 ```
 
-Теперь каждое действие будет отмечено именем и почтой.
+Now each action will be marked with a name and mail.
 
-## __2. Начало работы __*Git*__ с папками и файлами__
+## __2. Getting started __*Git*__ with folders and files__
 
-+ ### Создание нового репозитория:
++ ### Creating a new repository:
 
-__*Репозиторий Git — это виртуальное хранилище проекта. В нем можно хранить версии файлов для доступа по мере необходимости.*__
+__* The Git repository is a virtual repository for the project. It can store versions of files for access as needed.*__
 
-__*Git*__ хранит свои файлы и историю прямо в папке проекта. Чтобы создать новый репозиторий, нужно открыть терминал, зайти в папку проекта и выполнить команду init. Это включит приложение в этой конкретной папке и создаст скрытую директорию __.git__, где будет храниться история репозитория и настройки.
+__*Git*__ stores its files and history directly in the project folder. To create a new repository, you need to open a terminal, go to the project folder and run the init command. This will enable the application in that particular folder and create a hidden __ directory.git__, where the repository history and settings will be stored.
 
 ```sh
 git init
 ```
 
-+ ### Проверка состояние репозитория:
++ ### Checking the repository status:
 
 ```sh
 git status
 ```
 
-__*status*__ — команда, которая показывает информацию о текущем состоянии репозитория: актуальна ли информация на нём, нет ли чего-то нового, что поменялось, и так далее.
+__*status*__ is a command that displays information about the current state of the repository: is the information on it up-to-date, is there anything new that has changed, and so on.
 
-+ ### Добавление файла в репозиторий для отслеживания версий:
++ ### Adding a file to the repository for version tracking:
 
-После проверки состояния репозитория мы увидим файлы которые git не отслеживает, они будут обозначены красным цветом.
-Чтобы добавить один файл для отслеживания ввести команду:
+After checking the repository status, we will see files that git does not track, they will be marked in red.
+To add a single tracking file, enter the command:
 
 ```sh
-git add имя_файла.формат_файла (пример ---> git.md)
+git add file_name.file_format (example ---> git.md)
 ```
-Чтобы добавить все файлы репозитория для их отслеживания ввести команду:
+To add all the repository files to track them, enter the command:
 
 ```sh
 git add -a
 ```
 
-После проверяем - если мы сделали всё правильно, то при повторной проверке состояния репозитория эти файлы будут обозначены зелёным цветом.
+After that, we check - if everything is correct, then when re-checking the repository status, these files will be marked in green.
 
-+ ### Создание коммита файлов репозитория:
++ ### Creating a commit of repository files:
 
-Коммит это - сохранение текущего состояние изменений проекта, добавленных в раздел проиндексированных файлов.
+A commit is saving the current state of the project changes added to the indexed files section.
 
 ```sh
-git commit -m "комментарий сохранение - описание изменений"
+git commit -m "commit comment - description of the commit"
 ```
 
-Но перед командой __*git commit*__ нужно выполнить команду __*git add*__, чтобы добавить в проект («проиндексировать») изменения, которые будут сохранены в коммите.
+But before the __*git commit*__ command,  need to enter the __*git add*__ command to add ("index") changes to the project that will be saved during commit.
 
-* ### Просмотр истории коммитов репозитория:
+* ### Viewing the repository commit history:
 
-Для просмотра всех выполненных фиксаций можно воспользоваться историей коммитов. Она содержит сведения о каждом проведенном коммите проекта. Запросить ее можно при помощи команды:
+To view all committed commits, you can use the commit history. It contains information about each completed commit of the project. You can request it using the command:
 
 ```sh
 git log
 ```
-если добавить к команде __*--oneline*__ будет упрощённый список коммитов:
+if you add __*--oneline*__ to the command, there will be a simplified commit list:
 
 ```sh
 git log --oneline
 ```
 
-+ ### Перемещение между коммитоми файла:
++ ### Moving between file commits:
 
-Для просмотра изминений в разных версиях файла нужно запустить команду __*git log*__, найти интересующий коммит, скопировать первые 4 символа индекса коммита и запустить комманду:
-
-```sh
-git chekout 78а1(<--- достаточно первые 4 символа индекса коммита)
-```
-
-Для того, чтобы вернуться к последней версии проекта, нужно ввести имя ветки, в которой вы работаете вместо индекса коммита:
+To view changes in different versions of the file, run the __*git log*__ command, find the commit of interest, copy the first 4 characters of the commit index and run the command:
 
 ```sh
-git chekout master(<--- имя ветки) 
+git chekout 78а1(<--- the first 4 characters of the commit index are enough)
 ```
 
-## 3. Начало работы с ветками проекта
+In order to go to the latest version of the project, need to enter the name of the branch in which are working instead of the commit index:
 
-### Ветвление
+```sh
+git chekout master(<--- name_branch) 
+```
 
-Во время разработки новой функциональности считается хорошей практикой работать с копией оригинального проекта, которую называют веткой. Ветви имеют свою собственную историю и изолированные друг от друга изменения до тех пор, пока вы не решаете слить изменения вместе. Это происходит по ряду причин:
+##3. Getting started with project branches
 
-+ Уже рабочая, стабильная версия файла сохраняется.
+### Branching
 
-+ Различные новые функции могут разрабатываться параллельно разными программистами.
+During the development of new functionality, it is considered good practice to work with a copy of the original project, which is called a branch. Branches have their own history and changes isolated from each other until you decide to merge the changes together. This happens for a number of reasons:
 
-+ Разработчики могут работать с собственными ветками без риска, что база файла поменяется из-за чужих изменений.
++ The already working, stable version of the file is saved.
 
-+ В случае сомнений, различные реализации одной и той же идеи могут быть разработаны в разных ветках и затем сравниваться.
++ Various new features can be developed in parallel by different programmers.
 
-* ### Просмотр веток файла:
++ Developers can work with their own branches without the risk that the file base will change due to other people's changes.
+
++ In case of doubt, different implementations of the same idea can be developed in different branches and then compared.
+
+* ### Viewing file branches:
 
 ```sh
 git branch
 ```
-После ввода команды мы увидем в консоле-терминале все ветки репозитория и на какой ветви находимся.
 
-Ветка, на который мы находимся, обозначена звёздочкой, пример: *master
+After entering the command, we will see all the branches of the repository in the console-terminal and which branch we are on.
 
-* ### Создание новой ветки
+The branch we are on is marked with an asterisk, example: *master
 
-Основная ветка в каждом репозитории называется master. Чтобы создать новую ветку, используем команду:
+* ### Creating a new branch
 
-```sh
-git branch имя_ветки
-```
-Но, если при вводе команды, вы указали __*имя ветки*__, котороя уже существует, вам выдаст ошибку с сообщением, что данная ветка с таким именем уже существует !
-
-+ ### Переключение между ветками
-
-Для начала ввести команду __*git branch*__ для просмотра названий всех существующих веток.
-
-Найти нужную ветку. ввести команду:
+The main branch in each repository is called master. To create a new branch, enter the command:
 
 ```sh
-git checkout имя_ветки
+git branch name_branch
 ```
 
-__*Git checkout*__ - позволяет переключаться как между удаленными, так и между локальными ветками. Это один из способов получить доступ к работе коллеги или соавтора, обеспечивающий более высокую продуктивность совместной работы. Однако, тут надо помнить, что пока вы не закоммитили изменения, не получится переключиться на другую ветку.
+But if, when entering the command, you specified __*the name of a branch*__ that already exists, you will get an error with the message that this branch with that name already exists!
 
-+ ### Слияние веток
++ ### Switching between branches
 
-Как пример, хотим слить ветку __master__ с веткой __master_draft__, нужно находиться в ветке master и ввести команду:
+First, enter the command __*git branch*__ to view the names of all existing branches.
+
+Find the right branch. enter the command:
+
+```sh
+git checkout name_branch
+```
+
+__*Git checkout*__ - allows you to switch between both remote and local branches. This is one way to gain access to the work of a colleague or co-author, providing higher collaboration productivity. However, it must be remembered that until you commit the changes, you will not be able to switch to another branch.
+
++ ### Merging branches
+
+As an example, merge the __master__ branch with the __master_draft__ branch, need to be in the __master__ branch and enter the command:
 
 ```sh
 git merge master_draft
 ```
 
-+ ### Удаление веток
++ ### Removing branches
 
-Чтобы удалить ветку, нужно ввести команду :
+To delete a branch, enter the command :
 
 ```sh
-git branch -d имя_ветки
+git branch -d name_branch
 ```
