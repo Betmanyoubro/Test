@@ -6,7 +6,7 @@
 
 ## __1. Getting started with *Git*__
 
-+ ### Представиться __*Git*__:
++ ### Introduce himself __*Git*__:
 
 After installing Git, add the data: username and email address. To do this, enter the following commands in the terminal:
 
